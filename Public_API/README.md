@@ -1,7 +1,7 @@
 # Basic API
 
 ## Description
-This is a basic API built with Node.js to retrieve  basic information in JSON format
+This is a basic API built with Node.js to retrieve my basic information in JSON format fro HNG task 0, a public API that returns my registered email address on HNG12 Slack workspace, the current data time and The GitHub URL of the repository.
 
 ## Features
 - Returns basic information via `/my_info` endpoint.
