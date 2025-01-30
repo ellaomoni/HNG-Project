@@ -42,6 +42,9 @@ Response:
 
 }
 
+### Live Server
+https://basic-api-wppe.onrender.com/my_info
+
 
 Author 
 Emmanuella Omoni - Backend Developer 
