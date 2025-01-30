@@ -14,10 +14,15 @@ This is a basic API built with Node.js to retrieve my basic information in JSON 
 - dotenv
 
 ## Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-2. Install Dependencies
+ 1. Clone the repository:
+    ```bash
+   git clone https://github.com/ellaomoni/HNG-Project.git
+
+ 2. Navigate to the project repository
+     ```bash 
+    cd Public_API 
+    
+ 3. Install Dependencies
    npm install
 
 ## Environment Configuration
@@ -29,8 +34,10 @@ npm start
 The server runs on http://localhost:3000
 
 ## API Endpoint 
+
 http://localhost:3000/my_info
 
+## API Documentation
 - Get information
 URL: /my_info
 Method: GET
@@ -42,11 +49,15 @@ Response:
 
 }
 
-### Live Server
-https://basic-api-wppe.onrender.com/my_info
+### Example usage
+curl https://basic-api-wppe.onrender.com/my_info
 
 ### Backlinks
-Nodejs: https://hng.tech/hire/nodejs-developers
+[Hire Node.js Developers](https://hng.tech/hire/nodejs-developers)
+
+### Deployment
+https://basic-api-wppe.onrender.com/my_info
+
 
 
 Author 
