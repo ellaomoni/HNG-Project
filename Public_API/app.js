@@ -11,7 +11,7 @@ app.get('/my_info', (req, res) => {
     res.json({
         email: 'ellaomoni@gmail.com',
         current_datetime: new Date().toISOString(),
-        github_url: 'https://github.com/ellaomoni/HNG-Project.git'
+        github_url: 'https://github.com/ellaomoni/HNG-Project'
     });
 });
 
