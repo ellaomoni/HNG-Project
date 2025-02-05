@@ -29,19 +29,12 @@ const perfectNumber = (number) => {
 // Function to check if a number is an Armstrong number 
 
 const armstrongNumber = (number) => {
-    let sum = 0;
-    let temp = number;
-    const digits = number.toString().length;
-
-    while (temp > 0) {
-        let digit = temp % 10;   // Get last digit
-        sum += Math.pow(digit, digits);
-        temp = Math.floor(temp / 10);  // Remove last digit
-    }
-
+    const values = number.toString().split("").map(Number);
+    const power = values.length;
+    const sum = values.reduce((acc, value) => acc + Math.pow(value, power), 0);
     return sum === number;
-};
-
+    
+}
 
 // Function to get sum of values 
 const sum = (number) => {
@@ -61,7 +54,6 @@ app.get("/api/classify-number", async (req, res) => {
         });
     }
 
-   
     const num = parseInt(number);
 
     //Determine properties 
