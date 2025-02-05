@@ -18,9 +18,9 @@ const prime = (number) => {
 
 // Function to check if number is a perfect Number
 const perfectNumber = (number) => {
-  if(number <= 0) return false;
-  let sum = 1;
-  for (let i = 2; i <= number / 2; i++) {
+  if(number <= 2) return false;
+  let sum = 0;
+  for (let i = 1; i <= number / 2; i++) {
     if (number % i === 0 ) sum += i;
   }
   return sum === number;
