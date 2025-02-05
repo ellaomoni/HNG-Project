@@ -75,7 +75,7 @@ app.get("/api/classify-number", async (req, res) => {
             is_perfect: perfectNumber(num),
             properties: properties,
             digit_sum: sum(num),
-            funFact: funFact,
+            fun_fact: funFact,
         });
 
     } catch (error) {
