@@ -48,6 +48,16 @@ Response:
     "funFact":"370 is a narcissistic number."
 }
 
+## Error Handling
+Bad Request (400) Response: 
+{
+  "number": "abc",
+  "error": true
+} 
+Occurs when:
+number is missing.
+number is not a valid integer.
+
 ## Example  Usage
 curl http://localhost:3000/api/classify-number?number=370
 
