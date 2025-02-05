@@ -18,38 +18,40 @@ const prime = (number) => {
 
 // Function to check if number is a perfect Number
 const perfectNumber = (number) => {
-    let sum = 1;
-    for(let i = 2; i <= number / 2; i++)
-    {
-        if(number % i === 0) sum += i;
-    }
-    return sum === number;
+  if(number <= 0) return false;
+  let sum = 1;
+  for (let i = 2; i <= number / 2; i++) {
+    if (number % i === 0 ) sum += i;
+  }
+  return sum === number;
 }
 
 // Function to check if a number is an Armstrong number 
 
 const armstrongNumber = (number) => {
-    const values = number.toString().split("").map(Number);
+    const absNum = Math.abs(number);
+    const values = absNum.toString().split("").map(Number);
     const power = values.length;
     const sum = values.reduce((acc, value) => acc + Math.pow(value, power), 0);
-    return sum === number;
+    return sum === absNum;
     
 }
 
 // Function to get sum of values 
 const sum = (number) => {
-    return number.toString().split("").reduce(( sum, value) => sum + Number(value), 0);
-
-}
+    return Math.abs(number).toString().split("").reduce((sum, value) => sum + Number(value), 0);
+};
 
 app.get("/api/classify-number", async (req, res) => {
+
     const { number } = req.query;
 
     //validate input 
     if(!number || isNaN(number)) {
         console.error("Invalid input:", number);
-        return res.status(400).json({
-            number: number,
+        return res.status(400).json
+        ({
+            number: number || "",
             error: true
         });
     }
@@ -62,26 +64,23 @@ app.get("/api/classify-number", async (req, res) => {
     properties.push(num % 2 === 0 ? "even" : "odd");
 
 
-
+    let funFact = "Not available";
     try{
-        const funFactresponse = await axios.get(`http://numbersapi.com/${number}/math`, {timeout: 5000});
-        const funFact = funFactresponse.data;
+        const funFactResponse = await axios.get(`http://numbersapi.com/${num}/math`, {timeout: 5000});
+        funFact = funFactResponse.data;
+
+    } catch (error) {
+        console.error(`Error fetching fun fact for ${num}: ${error.message}`);
+    }
 
         res.status(200).json({
-            number: number,
-            is_prime: prime(number),
-            is_perfect: perfectNumber(number),
+            number: num,
+            is_prime: prime(num),
+            is_perfect: perfectNumber(num),
             properties: properties,
-            digit_sum: sum(number),
+            digit_sum: sum(num),
             funFact: funFact,
         });
-    }catch (error) {
-        console.error(`Error fetching fun fact for ${num}: ${error.message}`);
-        res.status(500).json({
-            number: number,
-            error: "Unable to fetch fun fact."
-        });
-    }
 
 });
 
